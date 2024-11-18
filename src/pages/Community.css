@@ -1,0 +1,13 @@
+.community {
+    padding: 20px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+  }
+  
+  .community h1 {
+    color: #144932;
+  }
+  
+  .community p {
+    color: #666;
+  }  

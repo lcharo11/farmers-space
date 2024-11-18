@@ -1,0 +1,59 @@
+/* Styling for the main News container */
+.news {
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header styling */
+.news h1 {
+  color: #144932;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Paragraph styling */
+.news p {
+  color: #555;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Adding some layout styles for news items (optional if listing news articles) */
+.news-item {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin: 15px 0;
+}
+
+/* Title for each news item */
+.news-item h2 {
+  color: #144932;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* News description */
+.news-item p {
+  color: #777;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Link to read more or get full news article */
+.news-item a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #144932;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.news-item a:hover {
+  text-decoration: underline;
+}

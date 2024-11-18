@@ -1,0 +1,13 @@
+.resources {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  .resources h1 {
+    color: #144932;
+  }
+  
+  .resources p {
+    color: #666;
+  }  

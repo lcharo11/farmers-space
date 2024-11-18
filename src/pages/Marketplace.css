@@ -1,0 +1,137 @@
+.marketplace {
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+.marketplace h1 {
+  color: #144932;
+  font-size: 32px;
+  text-align: center;
+}
+.marketplace-container {
+  padding: 20px;
+  font-family: 'Arial, sans-serif';
+}
+
+.marketplace-container h1 {
+  color: #2a9d8f;
+  text-align: center;
+}
+
+.search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.category-toggle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.category-toggle button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2a9d8f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-toggle button.active,
+.category-toggle button:hover {
+  background-color: #0056b3;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.product-details {
+  padding: 10px 0;
+}
+
+.product-details h2 {
+  color: #333;
+  font-size: 1.5em;
+}
+
+.product-details p {
+  color: #666;
+  margin: 5px 0;
+}
+
+.quantity-input {
+  width: 60px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-to-cart-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2a9d8f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #0056b3;
+}
+
+.cart-info {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.cart-info h2 {
+  color: #2a9d8f;
+}
+
+.cart-item {
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}

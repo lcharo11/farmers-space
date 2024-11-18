@@ -1,0 +1,75 @@
+.admin-panel-container {
+  display: flex;
+}
+
+.admin-panel-content {
+  margin-left: 250px; /* Width of the sidebar */
+  padding: 20px;
+  width: 100%;
+}
+
+.admin-panel-content h1 {
+  color: #2a9d8f;
+}
+
+.dashboard, .section {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  color: #2a9d8f;
+}
+
+.admin-panel-content form,
+.admin-panel-content ul {
+  margin-bottom: 20px;
+}
+
+.admin-panel-content input,
+.admin-panel-content textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.admin-panel-content input[type="file"] {
+  padding: 3px;
+}
+
+.admin-panel-content button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2a9d8f;
+  color: white;
+  cursor: pointer;
+}
+
+.admin-panel-content button:hover {
+  background-color: #0056b3;
+}
+
+.success-message {
+  color: green;
+}
+
+.error-message {
+  color: red;
+}
+
+.section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.section li {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}

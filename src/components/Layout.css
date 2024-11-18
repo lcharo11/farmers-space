@@ -1,0 +1,61 @@
+.layout {
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  position: relative; /* To position the auth popup */
+}
+
+.account-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.account-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent; /* Remove the green background */
+  color: white;
+  border: none;
+  padding: 15px 25px; /* Increase the padding for size */
+  cursor: pointer;
+  font-size: 18px; /* Increase font size */
+}
+
+.account-button img {
+  margin-right: 10px;
+  width: 60px; /* Increase icon size */
+  height: 60px; /* Increase icon size */
+}
+
+.account-options {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  top: 100%;
+  right: 0;
+  min-width: 150px;
+  z-index: 1000;
+}
+
+.account-options a,
+.account-options button {
+  padding: 10px;
+  text-align: left;
+  text-decoration: none;
+  color: black;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.account-options a:hover,
+.account-options button:hover {
+  background-color: #f1f1f1;
+}
