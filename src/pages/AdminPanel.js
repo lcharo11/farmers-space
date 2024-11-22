@@ -19,17 +19,22 @@ function AdminPanel() {
   const [orders, setOrders] = useState([]);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchOrders();
   }, []);
 
   const fetchOrders = async () => {
+    setLoading(true); // Start loading
     try {
       const response = await axios.get('http://localhost:5000/api/orders');
       setOrders(response.data);
     } catch (error) {
+      setError('Error fetching orders. Please try again later.');
       console.error('Error fetching orders:', error);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -127,8 +132,9 @@ function AdminPanel() {
       );
 
       console.log('Order confirmed:', response.data);
-      fetchOrders();
+      fetchOrders(); // Refresh orders after confirming
     } catch (error) {
+      setError('Error confirming order. Please try again.');
       console.error('Error confirming order:', error);
     }
   };
@@ -194,7 +200,7 @@ function AdminPanel() {
               onChange={handleFileChange}
               required
             />
-            <button type="submit">Add Product</button>
+            <button type="submit" disabled={loading}>Add Product</button>
           </form>
           {message && <p className="success-message">{message}</p>}
           {error && <p className="error-message">{error}</p>}
@@ -219,28 +225,28 @@ function AdminPanel() {
               onChange={handleNotificationChange}
               required
             />
-            <button type="submit">Send Notification</button>
+            <button type="submit" disabled={loading}>Send Notification</button>
           </form>
         </div>
 
         {/* View and Confirm Orders Section */}
         <div className="section">
           <h2>Orders</h2>
-          <ul>
-            {orders.map((order) => (
-              <li key={order._id}>
-                <p>Product: {order.product.name}</p>
-                <p>Quantity: {order.quantity}</p>
-                <p>Status: {order.status}</p>
-                <p>User: {order.user.email}</p>
-                {order.status === 'Pending' && (
-                  <button onClick={() => handleConfirmOrder(order._id)}>
-                    Confirm Order
-                  </button>
-                )}
-              </li>
-            ))}
-          </ul>
+          {loading ? <p>Loading orders...</p> : (
+            <ul>
+              {orders.map((order) => (
+                <li key={order._id}>
+                  <p>Product: {order.product.name}</p>
+                  <p>Quantity: {order.quantity}</p>
+                  <p>Status: {order.status}</p>
+                  <p>User: {order.user.email}</p>
+                  {order.status === 'Pending' && (
+                    <button onClick={() => handleConfirmOrder(order._id)}>Confirm Order</button>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </div>

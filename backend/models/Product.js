@@ -6,9 +6,8 @@ const productSchema = new mongoose.Schema({
   category: { type: String, required: true },
   description: { type: String, required: true },
   stock: { type: Number, required: true },
-  imageUrl: { type: String }, // Add this field for image URL
+  image: { type: String, required: true }, // Image URL or path
+  createdAt: { type: Date, default: Date.now },
 });
 
-const Product = mongoose.model('Product', productSchema);
-
-module.exports = Product;
+module.exports = mongoose.model('Product', productSchema);

@@ -1,23 +1,12 @@
 .marketplace {
   padding: 20px;
-  background-color: #f5f5f5;
-  min-height: 100vh;
-  font-family: 'Arial', sans-serif;
-}
-
-.marketplace h1 {
-  color: #144932;
-  font-size: 32px;
-  text-align: center;
-}
-.marketplace-container {
-  padding: 20px;
   font-family: 'Arial, sans-serif';
 }
 
-.marketplace-container h1 {
+.marketplace h1 {
   color: #2a9d8f;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .search-bar {
@@ -54,7 +43,7 @@
   background-color: #0056b3;
 }
 
-.products-grid {
+.product-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
@@ -67,34 +56,23 @@
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s ease;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
-.product-image {
+.product-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-bottom: 1px solid #ddd;
   margin-bottom: 10px;
-  border-radius: 10px;
 }
 
-.product-details {
-  padding: 10px 0;
-}
-
-.product-details h2 {
+.product-card h2 {
   color: #333;
   font-size: 1.5em;
 }
 
-.product-details p {
+.product-card p {
   color: #666;
-  margin: 5px 0;
 }
 
 .quantity-input {
@@ -109,7 +87,7 @@
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #2a9d8f;
+  background-color: #000000;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -119,19 +97,50 @@
   background-color: #0056b3;
 }
 
+.no-products-message {
+  text-align: center;
+  color: #555;
+  font-size: 1.2em;
+}
+
 .cart-info {
   margin-top: 40px;
-  text-align: center;
 }
 
 .cart-info h2 {
   color: #2a9d8f;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .cart-item {
-  color: #333;
   background-color: #f9f9f9;
   padding: 10px;
-  margin: 5px;
+  margin: 5px 0;
   border-radius: 5px;
+  text-align: center;
+  color: #333;
+}
+
+.cart-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  margin-top: 100px;
+  background-color: #3a7851;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
 }

@@ -1,0 +1,19 @@
+/* About Us page specific styles */
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff3e6;
+  }
+  
+  .about-heading {
+    font-size: 2em;
+    color: #ff6600;
+  }
+  
+  .about-paragraph {
+    font-size: 1.2em;
+    color: #cc5200;
+    line-height: 1.6;
+  }  

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Marketplace.css'; // Assuming you have a separate CSS file for styling
 
 const Marketplace = () => {
@@ -7,19 +7,102 @@ const Marketplace = () => {
   const [category, setCategory] = useState('all');
   const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const cartIconRef = useRef(null);
+  const navigate = useNavigate();
 
-  // Fetch products from backend
+  // Sample products for demonstration purposes
+  const sampleProducts = [
+    {
+      _id: '1',
+      name: 'Organic Apples',
+      description: 'Fresh organic apples from the farm.',
+      price: 2.99,
+      stock: 50,
+      imageUrl: '/images/apples.jpeg',
+      category: 'fruits',
+    },
+    {
+      _id: '2',
+      name: 'Tomatoes',
+      description: 'Ripe and juicy tomatoes.',
+      price: 1.99,
+      stock: 30,
+      imageUrl: '/images/tomatoes.jpeg',
+      category: 'vegetables',
+    },
+    {
+      _id: '3',
+      name: 'Carrots',
+      description: 'Crunchy organic carrots.',
+      price: 0.99,
+      stock: 20,
+      imageUrl: '/images/carrots.jpeg',
+      category: 'vegetables',
+    },
+    {
+      _id: '4',
+      name: 'Bananas',
+      description: 'Sweet and ripe bananas.',
+      price: 1.5,
+      stock: 100,
+      imageUrl: '/images/bananas.jpeg',
+      category: 'fruits',
+    },
+    {
+      _id: '5',
+      name: 'Cabbage',
+      description: 'Fresh and crisp cabbage.',
+      price: 1.2,
+      stock: 40,
+      imageUrl: '/images/cabbage.jpeg',
+      category: 'vegetables',
+    },
+    {
+      _id: '6',
+      name: 'Kales',
+      description: 'Nutritious and fresh kales.',
+      price: 1.0,
+      stock: 60,
+      imageUrl: '/images/kales.jpeg',
+      category: 'vegetables',
+    },
+    {
+      _id: '7',
+      name: 'Onions',
+      description: 'Flavorful onions for cooking.',
+      price: 0.8,
+      stock: 70,
+      imageUrl: '/images/onions.jpeg',
+      category: 'vegetables',
+    },
+    {
+      _id: '8',
+      name: 'Pineapples',
+      description: 'Sweet and juicy pineapples.',
+      price: 2.5,
+      stock: 20,
+      imageUrl: '/images/pineapples.jpeg',
+      category: 'fruits',
+    },
+  ];
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products');
-        setProducts(response.data);
+        // Simulating a fetch from backend with sample products
+        // Replace the following line with your actual backend request
+        // const response = await axios.get('http://localhost:5000/api/products');
+        // setProducts(response.data);
+        
+        // Using sample products for demonstration
+        setProducts(sampleProducts);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
     fetchProducts();
-  }, []);
+  },
+);
 
   // Filter products by category and search term
   const filteredProducts = products.filter(
@@ -41,6 +124,36 @@ const Marketplace = () => {
       }
       return [...prevCart, { ...product, quantity: product.quantity || 1 }];
     });
+  };
+
+  // Handle dragging of the cart icon
+  useEffect(() => {
+    const cartIcon = cartIconRef.current;
+    const handleDrag = (e) => {
+      e.preventDefault();
+      cartIcon.style.left = `${e.clientX - 25}px`;
+      cartIcon.style.top = `${e.clientY - 25}px`;
+    };
+
+    const handleMouseDown = (e) => {
+      cartIcon.addEventListener('mousemove', handleDrag);
+    };
+
+    const handleMouseUp = () => {
+      cartIcon.removeEventListener('mousemove', handleDrag);
+    };
+
+    cartIcon.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      cartIcon.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
+
+  const navigateToCart = () => {
+    navigate('/cart', { state: { cart } });
   };
 
   return (
@@ -86,7 +199,7 @@ const Marketplace = () => {
           filteredProducts.map((product) => (
             <div key={product._id} className="product-card">
               <img
-                src={product.imageUrl || 'default-image-url.jpg'} // Fallback image
+                src={product.imageUrl || '/images/default-product.jpg'} // Fallback image
                 alt={product.name}
                 className="product-image"
               />
@@ -121,20 +234,15 @@ const Marketplace = () => {
         )}
       </div>
 
-      {/* Cart Information */}
-      <div className="cart-info">
-        <h2>Cart</h2>
-        {cart.length > 0 ? (
-          cart.map((item, index) => (
-            <div key={index} className="cart-item">
-              <p>
-                {item.name} - Quantity: {item.quantity}
-              </p>
-            </div>
-          ))
-        ) : (
-          <p>Your cart is empty.</p>
-        )}
+      {/* Cart Icon */}
+      <div
+        id="cart-icon"
+        ref={cartIconRef}
+        className="cart-icon"
+        onClick={navigateToCart}
+        draggable="true"
+      >
+        🛒
       </div>
     </div>
   );

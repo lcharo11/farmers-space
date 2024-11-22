@@ -1,0 +1,19 @@
+/* Contact Us page specific styles */
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e6f7ff;
+  }
+  
+  .contact-heading {
+    font-size: 2em;
+    color: #0056b3;
+  }
+  
+  .contact-paragraph {
+    font-size: 1.2em;
+    color: #003366;
+    line-height: 1.6;
+  }  

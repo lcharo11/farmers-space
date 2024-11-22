@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Marketplace from './pages/Marketplace';
@@ -10,7 +10,11 @@ import Login from './pages/Login';
 import Signup from './components/Signup';
 import AdminPanel from './pages/AdminPanel'; // Import AdminPanel
 import ProtectedRoute from './components/ProtectedRoute'; // Import ProtectedRoute
-
+import Cart from './components/Cart'; // Import Cart
+import NotFound from './pages/NotFound'; // Import NotFound
+import Profile from './pages/Profile';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -38,6 +42,9 @@ function App() {
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path='/about' element={<AboutUs />} />
+        <Route path='/contact' element={<ContactUs />} /> 
 
         {/* Protected Routes */}
         <Route
@@ -50,6 +57,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/dashboard"
           element={
@@ -113,8 +121,20 @@ function App() {
           }
         />
 
+        {/* Cart Route */}
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Layout handleLogout={handleLogout}>
+                <Cart />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
         {/* Fallback Route */}
-        <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

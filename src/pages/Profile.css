@@ -1,0 +1,19 @@
+/* Profile page specific styles */
+
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .profile-heading {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .profile-paragraph {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+  }  

@@ -1,0 +1,45 @@
+.chat-list {
+    width: 30%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+  }
+  
+  .chat-list-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .chat-list-item:hover {
+    background-color: var(--hover-bg);
+  }
+  
+  .chat-list-item.selected {
+    background-color: var(--selected-bg);
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .chat-info {
+    flex: 1;
+  }
+  
+  .chat-name {
+    font-size: 1em;
+    margin: 0;
+    color: var(--text-color);
+  }
+  
+  .chat-last-message {
+    font-size: 0.85em;
+    color: var(--subtext-color);
+  }  
